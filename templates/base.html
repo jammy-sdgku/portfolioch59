@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800&family=Lobster&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/section.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header class="center">
+
+        <nav>
+            <!--Hamburger button-->
+
+            <div class="nav-btn">
+                <label for="nav-check">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+            </div>
+
+            <!--Links or Options of the Menu-->
+            <div class="nav-link center">
+                <a href="{% url 'aboutme' %}">About me</a>
+                <a href="{% url 'projects' %}">Projects</a>
+                <a href="{% url 'experience' %}">Experience</a>
+                <a href="{% url 'contact' %}">Contact</a>
+            </div>
+        </nav>
+
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    
+
+    <footer>
+        <a href="">
+            <h2>James Jones</h2>
+        </a>
+        <nav class="nav-footer center">
+            <a href="{% url 'aboutme' %}">About me</a>
+                <a href="{% url 'projects' %}">Projects</a>
+                <a href="{% url 'experience' %}">Experience</a>
+                <a href="{% url 'contact' %}">Contact</a>
+        </nav>
+    </footer>
+</body>
+</html>

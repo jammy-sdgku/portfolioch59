@@ -1,0 +1,22 @@
+footer {
+    height: 10rem;
+    margin-top: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    border-top: solid 2px var(--secondary-color);
+}
+
+footer nav {
+    width: max-content;
+}
+
+footer nav a {
+    color: var(--neutral-color);
+    margin: 0px 1rem;
+    height: 2rem;
+}
+
+footer nav a:hover {
+    border-bottom: solid 3px var(--primary-color);
+}
