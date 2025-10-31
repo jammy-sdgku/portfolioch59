@@ -5,58 +5,29 @@
 
 {% block content %}
 <section class="projects-section center-column">
+    <h2>Projects</h2>
+    <div class="projects-list">
+    
+<!--All the cards-->
 
-        <h2>Projects</h2>
+        <!--Database Project pull-->
+        
+    {% for project in project_list %}
+        <div class="project-card">
+            
+            <a href="{{ project.repository }}" target="_blank">
+                <img src="{{ project.image.url }}">
+                <p>{{ project.name }}</p>
+                <p>{{ project.description }}</p>
+                <p>{{ project.year }}</p>
 
-        <div class="projects-list">
-            <!--All the cards-->
-
-            <div class="project-card">
-                <a href="https://github.com/jammy-sdgku/PetSalon" target="_blank">
-                    <img src="{% static 'img/pet salon.png' %}">
-                    <p>Pretty Pet Salon</p>
-                    <p>This is website designed for a pet grooming/sitting salon. It includes a booking system, pet profiles, and services.</p>
-                    <p>2025</p>
-
-                    <div class="skills-container center">
-                        <label class="text-label">JavaScript</label>
-                        <label class="text-label">HTML</label>
-                        <label class="text-label">CSS</label>
-                    </div>
-                </a>
-            </div>
-
-            <div class="project-card">
-                <a href="https://github.com/jammy-sdgku/my-react-store_laptop" target="_blank">
-                    <img src="{% static 'img/online_store.png' %}">
-                    <p>My React Store</p>
-                    <p>This is a website designed for an online store. It includes product listings, a shopping cart, and user authentication.</p>
-                    <p>2024</p>
-
-                    <div class="skills-container center">
-                        <label class="text-label">React</label>
-                        <label class="text-label">JavaScript</label>
-                        <label class="text-label">CSS</label>
-                    </div>
-                </a>
-            </div>
-
-            <div class="project-card">
-                <a href="http://django-env.eba-vqb2pmmk.us-west-2.elasticbeanstalk.com/" target="_blank">
-                    <img src="{% static 'img/django_blog.png' %}">
-                    <p>Third Project Name</p>
-                    <p>This is a Django blog application. It includes user authentication, register functionality, blog post creation, and user authenticated section viewing.</p>
-                    <p>2025</p>
-
-                    <div class="skills-container center">
-                        <label class="text-label">Django</label>
-                        <label class="text-label">CSS</label>
-                        <label class="text-label">HTML</label>
-                    </div>
-                </a>
-            </div>
-
-        </div>
-
-    </section>
+                <div class="skills-container center">
+                    {% for skill in project.skills.all %}
+                        <label class="text-label">{{ skill.name }}</label>
+                    {% endfor %}
+                </div>
+            </a>
+        </div> 
+    {% endfor %}
+</section>
 {% endblock content %}
