@@ -33,6 +33,12 @@
     margin: 2rem 0px;
 }
 
+.about-description-container a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
 /*Skills Section*/
 .skills-section {
     padding: 2rem;
