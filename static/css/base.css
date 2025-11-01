@@ -1,12 +1,13 @@
 /*Variables*/
 :root {
     --primary-color: #334EEF;
- 
+
     --secondary-color: #6772D7;
-  
+
     --neutral-color: #333333;
 
-    --background-color: #F5F8FF;
+    --background-color: #tan #F5F5F5;
+    --background-image: url("{% static 'img/background.jpg' %}");
 
     --surface-color: #435DEF;
 
@@ -47,7 +48,7 @@ a {
 /*Text Style*/
 h1 {
     color: var(--neutral-color);
-    font-size: 2rem; 
+    font-size: 2rem;
     text-transform: uppercase;
 }
 
@@ -64,14 +65,12 @@ p {
     font-size: 1.1rem;
 }
 
-.text-label { 
-    color:white;
+.text-label {
+    color: white;
     background-color: var(--secondary-color);
     font-size: 1.1rem;
     text-transform: uppercase;
     font-weight: 600;
     padding: 0.8rem 1.5rem;
-    cursor:initial;
+    cursor: initial;
 }
-
-
