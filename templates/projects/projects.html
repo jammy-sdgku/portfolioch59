@@ -5,29 +5,58 @@
 
 {% block content %}
 <section class="projects-section center-column">
-    <h2>Projects</h2>
-    <div class="projects-list">
-    
-<!--All the cards-->
 
-        <!--Database Project pull-->
-        
-    {% for project in project_list %}
-        <div class="project-card">
-            
-            <a href="{{ project.repository }}" target="_blank">
-                <img src="{{ project.image.url }}">
-                <p>{{ project.name }}</p>
-                <p>{{ project.description }}</p>
-                <p>{{ project.year }}</p>
+        <h2>Projects</h2>
 
-                <div class="skills-container center">
-                    {% for skill in project.skills.all %}
-                        <label class="text-label">{{ skill.name }}</label>
-                    {% endfor %}
-                </div>
-            </a>
-        </div> 
-    {% endfor %}
-</section>
+        <div class="projects-list">
+            <!--All the cards-->
+
+            <div class="project-card">
+                <a href="https://github.com/" target="_blank">
+                    <img src="{% static 'img/picture-1.jpg' %}">
+                    <p>First Project Name</p>
+                    <p>This is the description for my first projects. This should be a short description.</p>
+                    <p>YYYY</p>
+
+                    <div class="skills-container center">
+                        <label class="text-label">Skill</label>
+                        <label class="text-label">Skill</label>
+                        <label class="text-label">Skill</label>
+                    </div>
+                </a>
+            </div>
+
+            <div class="project-card">
+                <a href="https://github.com/" target="_blank">
+                    <img src="{% static 'img/picture-2.jpg' %}">
+                    <p>Second Project Name</p>
+                    <p>This is the description for my second projects. This should be a short description.</p>
+                    <p>YYYY</p>
+
+                    <div class="skills-container center">
+                        <label class="text-label">Skill</label>
+                        <label class="text-label">Skill</label>
+                        <label class="text-label">Skill</label>
+                    </div>
+                </a>
+            </div>
+
+            <div class="project-card">
+                <a href="https://github.com/" target="_blank">
+                    <img src="{% static 'img/picture-3.jpg' %}">
+                    <p>Third Project Name</p>
+                    <p>This is the description for my third projects. This should be a short description.</p>
+                    <p>YYYY</p>
+
+                    <div class="skills-container center">
+                        <label class="text-label">Skill</label>
+                        <label class="text-label">Skill</label>
+                        <label class="text-label">Skill</label>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+    </section>
 {% endblock content %}
