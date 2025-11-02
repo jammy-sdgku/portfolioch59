@@ -17,4 +17,4 @@ class Project(models.Model):
     skills = models.ManyToManyField(Skill, related_name='projects')
 
     def __str__(self):
-        return f'{self.name} --({self.year})'
+        return self.name

@@ -1,15 +1,14 @@
 /*Variables*/
 :root {
-    --primary-color: #334EEF;
+    --primary-color: #008000;
 
-    --secondary-color: #6772D7;
+    --secondary-color: #008000;
 
     --neutral-color: #333333;
 
-    --background-color: #tan #F5F5F5;
-    --background-image: url("{% static 'img/background.jpg' %}");
+    --background-color: #D6AA80;
 
-    --surface-color: #435DEF;
+    --surface-color: #008000;
 
     --lobster-font: 'Lobster', sans-serif;
     --sans-font: 'DM Sans', sans-serif;
