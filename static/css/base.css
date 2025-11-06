@@ -14,6 +14,12 @@
     --sans-font: 'DM Sans', sans-serif;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 10rem;
+}
+
 .center {
     display: flex;
     justify-content: center;

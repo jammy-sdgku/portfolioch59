@@ -1,11 +1,14 @@
 footer {
-    height: 10rem;
-    margin-top: 2rem;
+    height: 5rem;
+    bottom: 0;
+    width: 100%;
+    margin-top: auto;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
     border-top: solid 2px var(--secondary-color);
     background-color: #008000;
+    position: fixed;
 }
 
 footer h2 {
