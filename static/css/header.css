@@ -1,7 +1,7 @@
 header {
     background-color: var(--surface-color);
     height: 60px;
-    position: sticky;
+    position:sticky;
     top: 0px;
 }
 
@@ -17,7 +17,7 @@ nav {
 }
 
 .nav-link a {
-    color: var(--background-color);
+    color:white;
     font-size: 1rem;
     text-transform: uppercase;
     margin: 2%;
@@ -37,7 +37,6 @@ nav {
     margin: 6px auto;
 }
 
-#nav-check,
-.nav-btn {
+#nav-check, .nav-btn {
     display: none;
 }
