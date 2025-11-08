@@ -3,6 +3,8 @@ from django.core.mail import send_mail
 from django.contrib import messages
 from django.conf import settings
 import logging
+
+from projects.models import Skill
 from .forms import ContactForm
 
 # Set up logging
@@ -10,7 +12,12 @@ logger = logging.getLogger(__name__)
 
 # Create your views here.
 def aboutme_view(request):
-    return render(request, 'portfolio/aboutme.html')
+    # Get all skills - the projects.Skill model only has: id, name, projects
+    skills = Skill.objects.all()
+    context = {
+        'skills': skills
+    }
+    return render(request, 'portfolio/aboutme.html', context)
 
 def experience_view(request):
     return render(request, 'portfolio/experience.html')
