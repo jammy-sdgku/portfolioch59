@@ -21,13 +21,10 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section center">
-        <h2>Contact</h2>
-        <form class="contact-form" action="{% url 'contact' %}" method="POST">
+        <h2>Contact Me</h2>
+        <form class="contact-form" action="{% url 'contact2' %}" method="POST">
             {% csrf_token %}
-            <input type="text" name="name" placeholder="Name" required />
-            <input type="email" name="email" placeholder="Email" required />
-            <input type="text" name="subject" placeholder="Subject" required />
-            <textarea name="message" placeholder="Message" rows="5" required></textarea>
+            {{ form.as_table}}
             <div>
                 <button type="submit">Send</button>
                 <button type="reset">Reset</button>
