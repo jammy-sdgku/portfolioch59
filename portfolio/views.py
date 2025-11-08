@@ -24,9 +24,12 @@ def contact_view(request):
         
         # Compose email
         full_message = f"""
+        'You have a new contact form submission:'
+        
         Name: {name}
         Email: {email}
         Subject: {subject}
+        
         Message:
         {message}
         """
@@ -69,6 +72,8 @@ def contact2_view(request):
             
             # Compose email
             full_message = f"""
+            'You have a new contact form submission:'
+            
             Name: {name}
             Email: {email}
             Subject: {subject}
