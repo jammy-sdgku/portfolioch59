@@ -153,6 +153,10 @@ a p:nth-child(4),
     flex-direction: column;
 }
 
+.contact-section.center {
+    width: 800px;
+}
+
 .contact-section h2 {
     font-size: 2rem;
     color: rgb(6, 6, 6);
@@ -168,7 +172,7 @@ a p:nth-child(4),
     flex-direction: column;
     gap: 1.0rem;
     width: 100%;
-    max-width: 500px;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
@@ -200,6 +204,8 @@ a p:nth-child(4),
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    width: 150px;
+    align-self: center;
 }
 
 .contact-form button:hover {
