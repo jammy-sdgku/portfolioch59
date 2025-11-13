@@ -118,3 +118,13 @@ def contact2_view(request):
         form = ContactForm()
     
     return render(request, 'portfolio/contact2.html', {'form': form})
+
+def world_clock(request):
+    """Get world clock data for template context"""
+    timezones = [
+        {'city': 'New York', 'timezone': 'America/New_York'},
+        {'city': 'London', 'timezone': 'Europe/London'},
+        {'city': 'Tokyo', 'timezone': 'Asia/Tokyo'},
+        {'city': 'Sydney', 'timezone': 'Australia/Sydney'},
+    ]
+    return {'timezones': timezones}

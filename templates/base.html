@@ -12,9 +12,12 @@
     <link rel="stylesheet" href="{% static 'css/section.css' %}">
     <link rel="stylesheet" href="{% static 'css/footer.css' %}">
     <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'css/world_clock.css' %}">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
+    {% include 'components/world_clock_bar.html' %}
+    
     <header class="center">
 
         <nav>

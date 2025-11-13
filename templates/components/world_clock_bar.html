@@ -1,0 +1,48 @@
+{% load static %}
+
+<div class="world-clock-bar">
+    <div class="clock-container">
+        <div class="clock-item" data-timezone="America/New_York">
+            <span class="city-name">New York</span>
+            <span class="clock-time">--:--:--</span>
+        </div>
+        <div class="clock-item" data-timezone="Europe/London">
+            <span class="city-name">London</span>
+            <span class="clock-time">--:--:--</span>
+        </div>
+        <div class="clock-item" data-timezone="Asia/Tokyo">
+            <span class="city-name">Tokyo</span>
+            <span class="clock-time">--:--:--</span>
+        </div>
+        <div class="clock-item" data-timezone="Australia/Sydney">
+            <span class="city-name">Sydney</span>
+            <span class="clock-time">--:--:--</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    function updateWorldClocks() {
+        const clockItems = document.querySelectorAll('.clock-item');
+        
+        clockItems.forEach(item => {
+            const timezone = item.dataset.timezone;
+            const now = new Date();
+            
+            const options = { 
+                timeZone: timezone, 
+                hour: '2-digit', 
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            };
+            
+            const timeString = now.toLocaleTimeString('en-US', options);
+            item.querySelector('.clock-time').textContent = timeString;
+        });
+    }
+    
+    // Update immediately and then every second
+    updateWorldClocks();
+    setInterval(updateWorldClocks, 1000);
+</script>
