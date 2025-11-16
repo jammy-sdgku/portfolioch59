@@ -28,11 +28,22 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-    '.elasticbeanstalk.com', 
-    'localhost', 
+    '.elasticbeanstalk.com',
+    'localhost',
     '127.0.0.1',
     'portfolio.jjit-consulting.solutions',
 ]
+
+# Allow AWS internal IPs for health checks
+import socket
+try:
+    # Get the EC2 instance's private IP
+    ALLOWED_HOSTS.append(socket.gethostbyname(socket.gethostname()))
+except:
+    pass
+
+# Allow AWS internal hostnames
+ALLOWED_HOSTS.append('.compute.internal')
 
 
 # Application definition
