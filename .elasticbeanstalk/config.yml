@@ -1,6 +1,6 @@
 branch-defaults:
   master:
-    environment: portfolio-prod
+    environment: portfolio-lb
 environment-defaults:
   Portfolio-env:
     branch: null

@@ -32,15 +32,8 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'portfolio.jjit-consulting.solutions',
+    '172.31.14.147',  # Explicitly add the EC2 private IP
 ]
-
-# Allow AWS internal IPs for health checks
-import socket
-try:
-    # Get the EC2 instance's private IP
-    ALLOWED_HOSTS.append(socket.gethostbyname(socket.gethostname()))
-except:
-    pass
 
 # Allow AWS internal hostnames
 ALLOWED_HOSTS.append('.compute.internal')
