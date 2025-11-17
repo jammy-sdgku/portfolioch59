@@ -8,303 +8,67 @@
     <h2>Experience</h2>
 
     <div class="experience-list">
-
+        {% for exp in experiences %}
         <div class="experience-card">
-            <p>JJIT Professional Consulting</p>
-            <p>Sr. Computer Systems Web Designer/Engineer</p>
-            <p>Facilitates customer business operations through strategic planning, design, integration, implementation, maintenance, and operation of enterprise applications and systems.
-            </p>
-            <p>Jan 2023 - Present</p>
-            <p>Chester, Virginia / Remote</p>
+            <p>{{ exp.company }}</p>
+            <p>{{ exp.position }}</p>
+            <p>{{ exp.description }}</p>
+            <p>{{ exp.start_date }} - {% if exp.end_date %}{{ exp.end_date }}{% else %}Present{% endif %}</p>
+            <p>{{ exp.location }}</p>
 
+            {% if exp.skills.all %}
             <div class="skills-container center">
-                <label class="text-label">Application Design</label>
-                <label class="text-label">Full Stack Development</label>
-                <label class="text-label">Application Development</label>
+                {% for skill in exp.skills.all %}
+                <label class="text-label">{{ skill.name }}</label>
+                {% endfor %}
             </div>
+            {% endif %}
         </div>
-
-        <div class="experience-card">
-            <p>AIS / Xgility</p>
-            <p>Senior Computer Systems Applications Analyst</p>
-            <p>Full-time - 40hrs. Sr. applications Analyst responsible for conducting in-depth tests, analyzing information and trends in the data to increase an application's efficiency. Coordinated a team of highly talented developers and mission analysts to assist business leaders in understanding how the applications best serve the organization. Responsible for data management of database and applications.
-            </p>
-            <p>Feb 2021 - Dec 2022</p>
-            <p>Wiesbaden, Germany</p>
-
-
-            <div class="skills-container center">
-                <label class="text-label">Application Analysis</label>
-                <label class="text-label">Scrum Master</label>
-                <label class="text-label">Project Management</label>
-            </div>
-        </div>
-
-        <div class="experience-card">
-            <p>Dyncorp International</p>
-            <p>Sr. Field Support Engineer</p>
-            <p>Full-time - 40hrs. Engineering Team FSE, successfully investigating network, database/data flow, software, and infrastructure issues. Administered/maintained/troubleshot data systems. Responsible for data management of all databases and applications. Responsible for all SharePoint engineering, maintenance, sites and webparts.
-            </p>
-            <p>Jun 2020 - Feb 2021</p>
-            <p>Wiesbaden, Germany</p>
-
-            <div class="skills-container center">
-                <label class="text-label">SharePoint Development</label>
-                <label class="text-label">Database Management</label>
-                <label class="text-label">Application Support</label>
-            </div>
-        </div>
-
-        <div class="experience-card">
-            <p>General Dynamics Information Technology (GDIT)</p>
-            <p>Sr. Systems Engineer</p>
-            <p>Full-time - 40hrs. Sr. Systems Engineer responsible for problem management engineering during operations. Led planning and evaluation through teamwork. Managed support and operations for the implementation of applications software and hardware analysis, coordinating testing, modification, and functionality upgrades to customer applications.
-            </p>
-            <p>Apr 2018 - Jun 2020</p>
-            <p>Wiesbaden, Germany</p>
-
-            <div class="skills-container center">
-                <label class="text-label">System Engineering</label>
-                <label class="text-label">IT Operations</label>
-                <label class="text-label">Problem Management</label>
-            </div>
-        </div>
-
-        <div class="experience-card">
-            <p>Leidos International Corporation</p>
-            <p>Sr. Field Support Engineer</p>
-            <p>Full-time - 40hrs. Field Support Engineer supplying problem management engineering during operations. Led planning and evaluation, and managing support. Led operations through teamwork for the implementation of applications, software analysis, and hardware analysis. Coordinated testing, modification, and functionality upgrades to customer applications. Data management of database and applications.
-            </p>
-            <p>Jun 2016 - Apr 2018</p>
-            <p>Wiesbaden, Germany</p>
-
-            <div class="skills-container center">
-                <label class="text-label">System Engineering</label>
-                <label class="text-label">IT Operations</label>
-                <label class="text-label">Problem Management</label>
-            </div>
-        </div>
-
-        <div class="experience-card">
-            <p>CACI International</p>
-            <p>Software Development Engineer</p>
-            <p>Full-time - 40hrs. Design / Engineering of all SharePoint sites and web parts connecting to external data as required. Develops technical solutions for viewing page/site items according to the users' access. Works with clients/customers to assess their needs, provide information or assistance, resolve problems, or satisfy/exceed expectations.
-            </p>
-            <p>Mar 2015 - Jun 2016</p>
-            <p>Wiesbaden, Germany</p>
-
-            <div class="skills-container center">
-                <label class="text-label">SharePoint Development</label>
-                <label class="text-label">Database Management</label>
-                <label class="text-label">Application Support</label>
-            </div>
-        </div>
-
-        <div class="experience-card">
-            <p>Mantech International Corporation</p>
-            <p>Sr. Principal Engineer</p>
-            <p>Full-time - 40hrs. Led the Problem Management Engineering Team, responsible for solving the network/ infrastructures' most difficult issues. Lead database (SQL) engineer. Administered all infrastructure servers, including building and configuring enterprise servers. Windows, Linux, SMS, Active Directory, Anti-virus, DC's, Exchange, backup, Web Design, and data management of database and applications.</p>
-            <p>May 2004 - Mar 2015</p>
-            <p>Washington, DC - Wiesbaden, Germany</p>
-
-            <div class="skills-container center">
-                <label class="text-label">System Engineering</label>
-                <label class="text-label">IT Operations</label>
-                <label class="text-label">Problem Management</label>
-                <label class="text-label">Database Management</label>
-            </div>
-        </div>
+        {% endfor %}
     </div>
-
 </section>
 
-<!--<section class="experience-section center-column"-->
 <section class="experience-section center-column">
     <h2>Education</h2>
 
     <div class="experience-list">
-
+        {% for edu in education %}
         <div class="experience-card">
-            <p>San Diego Global Knowledge University</p>
-            <p>Full Stack Developer - Immersed</p>
-            <p>May 2025 - Dec 2025</p>
+            <p>{{ edu.institution }}</p>
+            <p>{{ edu.degree }}</p>
+            <p>{{ edu.start_date }} - {{ edu.end_date }}</p>
 
+            {% if edu.skills.all %}
             <div class="skills-container center">
-                <label class="text-label">Python</label>
-                <label class="text-label">Django</label>
-                <label class="text-label">React</label>
+                {% for skill in edu.skills.all %}
+                <label class="text-label">{{ skill.name }}</label>
+                {% endfor %}
             </div>
-
+            {% endif %}
         </div>
-
-        <div class="experience-card">
-            <p>University of Maryland - Global Campus</p>
-            <p>Web Design Certificate</p>
-            <p>Jan 2024 - Aug 2024</p>
-
-            <div class="skills-container center">
-                <label class="text-label">Web Design</label>
-                <label class="text-label">CSS</label>
-                <label class="text-label">JavaScript</label>
-            </div>
-
-        </div>
-
-        <div class="experience-card">
-            <p>University of Maryland - Global Campus</p>
-            <p>Masters of Database Technologies</p>
-            <p>May 2015 - May 2017</p>
-
-            <div class="skills-container center">
-                <label class="text-label">SQL</label>
-                <label class="text-label">Database Design</label>
-                <label class="text-label">Database Engineering</label>
-            </div>
-
-        </div>
-
-        <div class="experience-card">
-            <p>American Intercontinental University</p>
-            <p>Bachelor of Information Technology</p>
-            <p>July 2003 - July 2005</p>
-
-            <div class="skills-container center">
-                <label class="text-label">Networking</label>
-                <label class="text-label">Database Management</label>
-                <label class="text-label">Computer Systems Design</label>
-            </div>
-
-        </div>
-
-            <div class="experience-card">
-            <p>American Intercontinental University</p>
-            <p>Associates of Arts in Information Technology</p>
-            <p>May 2002 - May 2004</p>
-
-            <div class="skills-container center">
-                <label class="text-label">Networking</label>
-                <label class="text-label">Art Design</label>
-                <label class="text-label">Computer Systems Design</label>
-            </div>
-        </div>
-
+        {% endfor %}
     </div>
-
 </section>
+
 <section class="experience-section center-column">
     <h2>Certifications</h2>
 
     <div class="experience-list">
-
+        {% for cert in certifications %}
         <div class="experience-card">
-            <p>W3Schools</p>
-            <p>Advanced PostgreSQL</p>
-            <p>Certified since 2025</p>
+            <p>{{ cert.issuing_organization }}</p>
+            <p>{{ cert.name }}</p>
+            <p>Certified since {{ cert.year_certified }}</p>
 
+            {% if cert.skills.all %}
             <div class="skills-container center">
-                <label class="text-label">AWS</label>
-                <label class="text-label">Cloud Computing</label>
-                <label class="text-label">IT Service Management</label>
+                {% for skill in cert.skills.all %}
+                <label class="text-label">{{ skill.name }}</label>
+                {% endfor %}
             </div>
+            {% endif %}
         </div>
-        
-        <div class="experience-card">
-            <p>W3Schools</p>
-            <p>Certified SQL Developer</p>
-            <p>Certified since 2024</p>
-
-            <div class="skills-container center">
-                <label class="text-label">SQL</label>
-                <label class="text-label">SQL Development</label>
-                <label class="text-label">Web Development</label>
-            </div>
-        </div>
-        
-        <div class="experience-card">
-            <p>Amazon Web Services Cloud</p>
-            <p>AWS Cloud Practitioner</p>
-            <p>Certified since 2019</p>
-
-            <div class="skills-container center">
-                <label class="text-label">AWS</label>
-                <label class="text-label">Cloud Computing</label>
-                <label class="text-label">IT Service Management</label>
-            </div>
-        </div>
-        
-        <div class="experience-card">
-            <p>McAfee</p>
-            <p>HBSS/ESS Certified Administrator</p>
-            <p>Certified since 2016</p>
-
-            <div class="skills-container center">
-                <label class="text-label">Endpoint Security</label>
-                <label class="text-label">Threat Management</label>
-                <label class="text-label">Intrusion Detection</label>
-            </div>
-        </div>
-        
-        <div class="experience-card">
-            <p>CompTIA</p>
-            <p>Security+</p>
-            <p>Certified since 2013</p>
-
-            <div class="skills-container center">
-                <label class="text-label">Security</label>
-                <label class="text-label">Network Security</label>
-                <label class="text-label">Risk Management</label>
-            </div>
-        </div>
-        
-        <div class="experience-card">
-            <p>U.S Army</p>
-            <p>DCGS-A Certified Administrator</p>
-            <p>Certified since 2013</p>
-
-            <div class="skills-container center">
-                <label class="text-label">Distributed Computing</label>
-                <label class="text-label">Threat Management</label>
-                <label class="text-label">Military Support</label>
-            </div>
-        </div>
-        
-        <div class="experience-card">
-            <p>Pink Elephant</p>
-            <p>ITIL V3 Certification</p>
-            <p>Certified since 2008</p>
-
-            <div class="skills-container center">
-                <label class="text-label">ITIL</label>
-                <label class="text-label">Service Management</label>
-                <label class="text-label">IT Governance</label>
-            </div>
-
-        </div>
-
-        <div class="experience-card">
-            <p>Open Text</p>
-            <p>LiveLink Certified Engineer</p>
-            <p>Certified since 2008</p>
-
-            <div class="skills-container center">
-                <label class="text-label">Collaboration</label>
-                <label class="text-label">Enterprise Content Management</label>
-                <label class="text-label">Records Management</label>
-            </div>
-        </div>
-
-        <div class="experience-card">
-            <p>Learning Tree International</p>
-            <p>Sharepoint Certified Professional</p>
-            <p>Certified since 2007</p>
-
-            <div class="skills-container center">
-                <label class="text-label">Sharepoint</label>
-                <label class="text-label">Collaboration</label>
-                <label class="text-label">Document Management</label>
-            </div>
-        </div>
+        {% endfor %}
     </div>
-
 </section>
 {% endblock content %}
