@@ -147,9 +147,9 @@ if not DEBUG:
     # AWS S3 Configuration for Production - prioritize environment variables
     AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID') or config('AWS_ACCESS_KEY_ID', default='')
     AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY') or config('AWS_SECRET_ACCESS_KEY', default='')
-    AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', default='portfoliojjit')
+    AWS_STORAGE_BUCKET_NAME = config('AWS_STORAGE_BUCKET_NAME', default='elasticbeanstalk-eu-north-1-603319527322')
     AWS_S3_REGION_NAME = config('AWS_S3_REGION_NAME', default='eu-north-1')
-    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'  # Include region
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
     AWS_S3_OBJECT_PARAMETERS = {
         'CacheControl': 'max-age=86400',
     }
