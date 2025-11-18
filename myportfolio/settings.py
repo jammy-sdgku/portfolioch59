@@ -22,7 +22,15 @@ SECRET_KEY = os.environ.get('SECRET_KEY') or config('SECRET_KEY', default='djang
 # DEBUG
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
+# ALLOWED_HOSTS - include all necessary hosts for production
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1,localhost', cast=Csv())
+
+# Add AWS-specific hosts
+ALLOWED_HOSTS.extend([
+    '.compute.internal',  # AWS internal hostnames
+    '.elasticbeanstalk.com',  # EB environment URLs
+    'portfolio.jjit-consulting.solutions',  # Your custom domain
+])
 
 # Allow AWS internal hostnames
 ALLOWED_HOSTS.append('.compute.internal')
