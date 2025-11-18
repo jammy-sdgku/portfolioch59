@@ -10,30 +10,17 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
-from pathlib import Path
-from decouple import config, Csv
 import os
+from pathlib import Path
+from decouple import config
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Prioritize environment variables over .env file
+SECRET_KEY = os.environ.get('SECRET_KEY') or config('SECRET_KEY')
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config('DEBUG', default=False, cast=bool)
-
-ALLOWED_HOSTS = [
-    '.elasticbeanstalk.com',
-    'localhost',
-    '127.0.0.1',
-    'portfolio.jjit-consulting.solutions',
-    '172.31.14.147',  # Explicitly add the EC2 private IP
-]
+ALLOWED_HOSTS = ['portfolio.jjit-consulting.solutions', 'localhost', '127.0.0.1']
 
 # Allow AWS internal hostnames
 ALLOWED_HOSTS.append('.compute.internal')
@@ -147,15 +134,17 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Media files and SSL/HTTPS Settings
 if not DEBUG:
-    # AWS S3 Configuration for Production
-    AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_ACCESS_KEY')
+    # AWS S3 Configuration for Production - prioritize environment variables
+    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID') or config('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY') or config('AWS_SECRET_ACCESS_KEY')
     AWS_STORAGE_BUCKET_NAME = 'elasticbeanstalk-eu-north-1-603319527322'
-    AWS_S3_REGION_NAME = 'eu-north-1'  # Fix: Ensure this is set correctly
+    AWS_S3_REGION_NAME = 'eu-north-1'
     AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
     AWS_DEFAULT_ACL = 'public-read'
     AWS_LOCATION = 'portfolio-media'
-    AWS_S3_SIGNATURE_VERSION = 's3v4'  # Add this line
+    AWS_S3_SIGNATURE_VERSION = 's3v4'
+    AWS_S3_FILE_OVERWRITE = False
+    AWS_QUERYSTRING_AUTH = False
     
     # S3 Media Storage
     DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

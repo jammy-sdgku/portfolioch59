@@ -5,6 +5,9 @@ environment-defaults:
   Portfolio-env:
     branch: null
     repository: null
+  portfolio-lb:
+    branch: null
+    repository: null
 global:
   application_name: portfolio
   default_ec2_keyname: django_blog_keyPair
