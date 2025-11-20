@@ -20,8 +20,9 @@
                 <p>{{ project.name }}</p>
                 <p>{{ project.description }}</p>
                 <p>{{ project.year }}</p>
-
+                
                 <div class="skills-container center">
+                    <p>Technologies Used:</p>
                     {% for skill in project.skills.all %}
                         <label class="text-label">{{ skill.name }}</label>
                     {% endfor %}
