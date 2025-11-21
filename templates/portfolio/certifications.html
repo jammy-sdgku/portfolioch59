@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Education - Portfolio{% endblock title %}
+
+{% block content %}
+<section class="experience-section center-column">
+    <h2>Certifications</h2>
+
+    <div class="experience-list">
+        {% for cert in certifications %}
+        <div class="experience-card">
+            <p>{{ cert.issuing_organization }}</p>
+            <p>{{ cert.name }}</p>
+            <p>Certified since {{ cert.year_certified }}</p>
+
+            {% if cert.skills.all %}
+            <div class="skills-container center">
+                {% for skill in cert.skills.all %}
+                <label class="text-label">{{ skill.name }}</label>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock content %}

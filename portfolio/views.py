@@ -22,6 +22,12 @@ def aboutme_view(request):
 def experience_view(request):
     return render(request, 'portfolio/experience.html')
 
+def education_view(request):
+    return render(request, 'portfolio/education.html')
+
+def certification_view(request):
+    return render(request, 'portfolio/certifications.html')
+
 def contact_view(request):
     if request.method == 'POST':
         name = request.POST.get('name')
