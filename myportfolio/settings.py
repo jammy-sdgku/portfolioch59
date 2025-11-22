@@ -21,6 +21,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY') or config('SECRET_KEY', default='djang
 
 # DEBUG for production - use environment variable first, then config with fallback
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+
 # For build time, we set DEBUG to True by default
 #DEBUG = 'True'
 
