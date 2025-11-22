@@ -19,9 +19,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY - use environment variable first, then config with fallback
 SECRET_KEY = os.environ.get('SECRET_KEY') or config('SECRET_KEY', default='django-insecure-build-time-key-change-in-production')
 
-# DEBUG
-#DEBUG = os.environ.get('DEBUG', 'False') == 'True'
-DEBUG = 'True'
+# DEBUG for production - use environment variable first, then config with fallback
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+# For build time, we set DEBUG to True by default
+#DEBUG = 'True'
 
 # ALLOWED_HOSTS - include all necessary hosts for production
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='127.0.0.1,localhost', cast=Csv())
