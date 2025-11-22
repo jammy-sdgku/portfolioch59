@@ -7,13 +7,12 @@
 <section class="experience-section center-column">
     <h2>Certifications</h2>
 
-    <div class="experience-list">
+     <div class="experience-list">
         {% for cert in certifications %}
         <div class="experience-card">
             <p>{{ cert.issuing_organization }}</p>
             <p>{{ cert.name }}</p>
             <p>Certified since {{ cert.year_certified }}</p>
-
             {% if cert.skills.all %}
             <div class="skills-container center">
                 {% for skill in cert.skills.all %}
@@ -22,6 +21,8 @@
             </div>
             {% endif %}
         </div>
+        {% empty %}
+        <p>No certifications found.</p>
         {% endfor %}
     </div>
 </section>

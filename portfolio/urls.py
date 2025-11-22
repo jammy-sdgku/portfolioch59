@@ -1,8 +1,8 @@
 from django.contrib import admin
 from django.urls import path, include
 from portfolio import views
-from experience.views import experience_view
-from portfolio.views import education_view, certification_view
+from experience.views import experience_view, education_view, certification_view
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
