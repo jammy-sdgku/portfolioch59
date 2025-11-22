@@ -142,7 +142,7 @@ a p:nth-child(4),
 /*Contact Section*/
 .contact-section {
     padding: 2rem;
-    margin: 5rem 0px;
+    margin: 1rem 0px;
 }
 
 /* Contact Section */
@@ -208,6 +208,11 @@ a p:nth-child(4),
     cursor: pointer;
     transition: background-color 0.3s ease;
     width: 150px;
+}
+
+.contact-form button[type="reset"] {
+    background-color: #cc0000;
+    color: black;
 }
 
 .contact-form button:hover {
